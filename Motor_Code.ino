@@ -1,6 +1,5 @@
 //#include "Motor.h"
-#include "/* Compass */"
-#include <cmath>
+//#include "/* Compass */"
 
 #define LeftMotorOUTA 1
 #define LeftMotorOUTB 2
@@ -47,7 +46,7 @@ void loop() {
       // check Orientation
       break;
     case 2:   // turning UGV L if neg angle, R if pos angle
-      turnUGV(/* locAngle, UGV_Angle */);
+//      turnUGV(/* locAngle, UGV_Angle */);
       // check Orientation, return true if orientation matches destination
       break;
   }
@@ -62,10 +61,12 @@ void motorStop() {
   analogWrite(RightEn, 0);
 }
 void motorStraight() {
-  digitalWrite(LeftMotorOUTA, HIGH);
-  digitalWrite(LeftMotorOUTB, LOW);
-  digitalWrite(RightMotorOUTA, HIGH);
-  digitalWrite(RightMotorOUTB, LOW);
+  analogWrite(LeftEn, 100);
+  analogWrite(RightEn, 100);
+//  digitalWrite(LeftMotorOUTA, HIGH);
+//  digitalWrite(LeftMotorOUTB, LOW);
+//  digitalWrite(RightMotorOUTA, HIGH);
+//  digitalWrite(RightMotorOUTB, LOW);
 }
 void turnUGV(const double& locAngle, const double& UGV_Angle) {
   /*
@@ -76,6 +77,8 @@ void turnUGV(const double& locAngle, const double& UGV_Angle) {
    */
 
 //   once done turning, motorState = straight
+/* Right Turn */
+  
 }
 
 //void checkOrientatoin(const double& locAngle, const double& UGV_Angle) {
